@@ -35,9 +35,13 @@ docker run --rm python-version-app
 ## Sample Output
 
 ```text
-Python Version: 3.12.13
+Python Version: 3.12.11
 Current Date & Time: 2026-06-21 10:15:32.123456
 ```
+
+## Screenshot
+
+![Output Screenshot](Screenshot.png)
 
 ## Author
 
