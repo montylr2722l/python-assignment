@@ -1,21 +1,40 @@
 # PySpark Sales DataFrame Application
 
-## Objective
+## Overview
 
-This project demonstrates DataFrame operations using PySpark and Docker.
+This project demonstrates the use of PySpark DataFrames to process sales data inside a Docker container.
 
-### Operations
+The application performs the following operations:
 
-1. Sort products by sales descending
-2. Display top 3 products by sales
-3. Filter products with sales > 80000
-4. Save filtered results to CSV
+1. Reads sales data from a CSV file.
+2. Sorts all products by sales in descending order.
+3. Displays the top 3 products with the highest sales.
+4. Filters products with sales greater than 80,000.
+5. Saves the filtered output as a CSV file.
+
+---
+
+## Project Structure
+
+```text
+pyspark-sales-app/
+│
+├── app.py
+├── sales.csv
+├── Dockerfile
+├── requirements.txt
+├── README.md
+├── Screenshot.png
+│
+└── output/
+    └── filtered_sales.csv
+```
 
 ---
 
 ## Dataset
 
-sales.csv
+**sales.csv**
 
 ```csv
 product_id,product_name,category,sales
@@ -31,11 +50,25 @@ product_id,product_name,category,sales
 
 ---
 
+## Technologies Used
+
+* Python 3.12
+* PySpark 3.5.1
+* Apache Spark
+* Java (JDK)
+* Docker
+
+---
+
 ## Build Docker Image
+
+Run the following command from the project directory:
 
 ```bash
 docker build -t pyspark-sales-app .
 ```
+
+---
 
 ## Run Docker Container
 
@@ -45,33 +78,75 @@ docker run --rm pyspark-sales-app
 
 ---
 
-## Output
+## Operations Performed
 
-### Sorted Products
+### 1. Sort Products by Sales (Descending)
 
-Displays all products sorted by sales in descending order.
+Products are sorted in descending order based on sales values.
 
-### Top 3 Products
+### 2. Display Top 3 Products
 
-Displays the highest-selling three products.
+Top three highest-selling products are displayed on the console.
 
-### Filtered Products
+### 3. Filter Products with Sales Greater Than 80,000
 
-Products with sales greater than 80000 are saved to:
+Filtered products are saved in:
 
 ```text
-output/filtered_sales/
+output/filtered_sales.csv
 ```
 
 ---
 
-## Technologies
+## Filtered Output
 
-- Python 3.12
-- PySpark 3.5.1
-- Apache Spark
-- Java
-- Docker
+```csv
+product_id,product_name,category,sales
+101,Laptop,Electronics,150000
+102,Mobile,Electronics,95000
+103,TV,Electronics,120000
+108,Bed,Furniture,90000
+```
+
+---
+
+## Sample Console Output
+
+```text
+===== Products Sorted By Sales =====
+
+Laptop      150000
+TV          120000
+Mobile       95000
+Bed          90000
+Sofa         80000
+Table        45000
+Chair        30000
+Headphones   25000
+
+===== Top 3 Products =====
+
+Laptop      150000
+TV          120000
+Mobile       95000
+
+===== Products With Sales > 80000 =====
+
+Laptop      150000
+Mobile       95000
+TV          120000
+Bed          90000
+
+Filtered sales saved successfully.
+```
+
+---
+
+## Screenshot
+
+Add the Docker execution screenshot here:
+
+![Output Screenshot](Screenshot.png)
 
 ---
 
